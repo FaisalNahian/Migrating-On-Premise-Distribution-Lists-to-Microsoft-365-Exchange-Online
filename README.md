@@ -10,7 +10,7 @@ At a high level, this script does the following:
 
 Running the Script
 1) To create the placeholder group and export the CSV, you’re going to run the following command:
-2) 
+
 .\Recreate-DistributionGroup.ps1 -Group "DL-Finance" -CreatePlaceHolder
 
 This will create a group in the cloud with the name “Cloud-PreviousDisplayName” and hide it from the GAL.
