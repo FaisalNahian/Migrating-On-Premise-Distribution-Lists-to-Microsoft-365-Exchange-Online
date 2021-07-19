@@ -10,19 +10,19 @@ At a high level, this script does the following:
 
 Running the Script
 1) To create the placeholder group and export the CSV, you’re going to run the following command:
+  .\Recreate-DistributionGroup.ps1 -Group "DL-Finance" -CreatePlaceHolder
 
-.\Recreate-DistributionGroup.ps1 -Group "DL-Finance" -CreatePlaceHolder
+  This will create a group in the cloud with the name “Cloud-PreviousDisplayName” and hide it from the GAL.
 
-This will create a group in the cloud with the name “Cloud-PreviousDisplayName” and hide it from the GAL.
-
-If it fails, review the error for any duplicate alias that may already exist, resolve the issue, and then re-run the script again.
+  If it fails, review the error for any duplicate alias that may already exist, resolve the issue, and then re-run the script again.
 
 2) After the placeholder group is created, you will want to validate the new group. You can then delete the old group from Exchange Online by removing it from the Azure AD sync scope. For current versions of AAD Connect, this can be done by populating the “adminDescription” attribute with the value “Group_NoSync”. 
 
 3) Once your sync cycle completes, you can run the following command to make the final cutover:
 
-.\Recreate-DistributionGroup.ps1 -Group "DL-Finance" -Finalize
+  .\Recreate-DistributionGroup.ps1 -Group "DL-Finance" -Finalize
 
-Assuming everything looks good with the new cloud group, you can delete the on-premises one and setup a mail contact if desired.
+  Assuming everything looks good with the new cloud group, you can delete the on-premises one and setup a mail contact if desired.
+
 
 Original Author, Joe Palarchio, posted this script in the Microsoft Script Center but that is no longer available. 
